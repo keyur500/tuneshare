@@ -1,6 +1,14 @@
+<?php  
+    // It will create a new session and generate a unique session ID for the user. 
+    session_start();
+?>
 <?php require_once('header.php'); ?>
 <body class="view">
 <div class="container inner">
+
+<!-- including the session details -->
+<?php require_once('session_data.php');?>
+
 <header class="masthead mb-auto">
     <div class="inner">
       <h3 class="masthead-brand">TuneShare</h3>
@@ -29,7 +37,6 @@
     $records = $statement->fetchAll(); 
 
     // echo out the top of the table 
-
     echo "<table class='table'>";
 
     foreach ($records as $record) {

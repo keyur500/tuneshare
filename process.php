@@ -1,3 +1,20 @@
+<?php  
+    // It will create a new session and generate a unique session ID for the user. 
+    session_start();
+    
+    // storing the user first name in a variable 
+    $session_user_name = filter_input(INPUT_POST, 'fname');
+    
+    //assigning the first name varible to the session associative array 
+    $_SESSION['name'] = $session_user_name;
+    
+    // Check if the session is set then only it will display the name in the browser
+    // if(isset($_SESSION['name'])){
+    //     echo "<p> Hi your Session Username is : ".$_SESSION['name']."</p>";
+    //     echo "<br><a href='destroy.php'>Forget Me</a>";
+    // }
+?>
+<!-- <a href="destroy.php">Forget Me</a> -->
 <?php require_once('header.php'); ?>
 <body class="add">
 <div class="container inner saved">
@@ -14,6 +31,9 @@
 <h1> TuneShare - Share Your Fave Tunes & Join The Community </h1>
 <main>
     <?php
+
+    //<!-- including the session details -->
+    require_once('session_data.php');
 
     $first_name = filter_input(INPUT_POST, 'fname');
     $last_name = filter_input(INPUT_POST, 'lname');
@@ -133,7 +153,7 @@
             echo $error_message;
             echo " $id $first_name $last_name $genre $location $email $age $fav_song $photo";
             //email app admin with error
-            mail('jessicagilfillan@gmail.com', 'TuneShare Error', 'Error :' . $error_message);
+            // mail('jessicagilfillan@gmail.com', 'TuneShare Error', 'Error :' . $error_message);
         }
     }
     ?>

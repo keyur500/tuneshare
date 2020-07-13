@@ -294,6 +294,13 @@ body {
   margin-right: auto; 
 }
 
+
+.session {
+background-color: #333;
+font-family: cursive;
+padding: 15px;
+}
+
   /*responsive */ 
 
   @media (min-width: 768px) {
